@@ -54,6 +54,7 @@ class AdminController extends Controller
 
         if ($request->file('photo')) {
             $file = $request->file('photo');
+            @unlink(public_path('upload/admin_images/' . $data->photo));
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('upload/admin_images'), $filename);
             $data['photo'] = $filename;
@@ -61,6 +62,11 @@ class AdminController extends Controller
 
         $data->save();
 
-        return redirect()->back();
+        $notification = array(
+            'message' => 'Admin profile update successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
     }
 }
