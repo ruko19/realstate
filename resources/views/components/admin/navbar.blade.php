@@ -12,18 +12,7 @@
             </div>
         </form>
         <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="mt-1 flag-icon flag-icon-us" title="us"></i> <span class="ms-1 me-1 d-none d-md-inline-block">English</span>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="languageDropdown">
-    <a href="javascript:;" class="py-2 dropdown-item"><i class="flag-icon flag-icon-us" title="us" id="us"></i> <span class="ms-1"> English </span></a>
-    <a href="javascript:;" class="py-2 dropdown-item"><i class="flag-icon flag-icon-fr" title="fr" id="fr"></i> <span class="ms-1"> French </span></a>
-    <a href="javascript:;" class="py-2 dropdown-item"><i class="flag-icon flag-icon-de" title="de" id="de"></i> <span class="ms-1"> German </span></a>
-    <a href="javascript:;" class="py-2 dropdown-item"><i class="flag-icon flag-icon-pt" title="pt" id="pt"></i> <span class="ms-1"> Portuguese </span></a>
-    <a href="javascript:;" class="py-2 dropdown-item"><i class="flag-icon flag-icon-es" title="es" id="es"></i> <span class="ms-1"> Spanish </span></a>
-                </div>
- </li>
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i data-feather="grid"></i>
@@ -208,13 +197,13 @@
                     </div>
     <ul class="p-1 list-unstyled">
       <li class="py-2 dropdown-item">
-        <a href="pages/general/profile.html" class="text-body ms-0">
+        <a href="{{route('admin.profile')}}" class="text-body ms-0">
           <i class="me-2 icon-md" data-feather="user"></i>
           <span>Profile</span>
         </a>
       </li>
       <li class="py-2 dropdown-item">
-        <a href="javascript:;" class="text-body ms-0">
+        <a href="{{route('admin.profile')}}" class="text-body ms-0">
           <i class="me-2 icon-md" data-feather="edit"></i>
           <span>Edit Profile</span>
         </a>
@@ -226,7 +215,7 @@
         </a>
       </li>
       <li class="py-2 dropdown-item">
-        <a href="javascript:;" class="text-body ms-0">
+        <a href="{{route('admin.logout')}}" class="text-body ms-0">
           <i class="me-2 icon-md" data-feather="log-out"></i>
           <span>Log Out</span>
         </a>
