@@ -31,14 +31,18 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+
+
 Route::middleware('auth')->group(function () {
 
     Route::get('/user/profile', [UserController::class, 'userProfile'])->name('user.profile');
+    Route::post('/user/profile/store', [UserController::class, 'userProfileStore'])->name('user.profile.store');
 });
 
 require __DIR__ . '/auth.php';
 
-
+//   Admin Group Middleware
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');

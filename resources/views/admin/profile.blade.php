@@ -115,18 +115,6 @@
 
             <script type="text/javascript">
 
-                // $(document).ready(function(){
-                //     $('#image').change(function(e){
-                //         var reader = new FileReader();
-                //         reader.onload = function(e){
-                //             $('showImage').attr('src',e.target.result);
-
-                //         }
-                //         return reader.readAsDataURL(e.target.file['0']);
-
-                //     });
-
-                // });
 
                 document.addEventListener('DOMContentLoaded', function() {
                     const imageInput = document.getElementById('image');
@@ -143,10 +131,6 @@
                         reader.readAsDataURL(file);
                     });
                 });
-
-
-
-
             </script>
 
 </x-admin.adminLayout>

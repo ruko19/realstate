@@ -62,7 +62,7 @@
 
 
 
-                                    <form action="signin.html" method="post" class="default-form">
+                                    <form action="{{route('user.profile.store')}}" method="post" class="default-form" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group">
                                             <label for="name">Name</label>
@@ -86,8 +86,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="formFile" class="form-label">Default file input example</label>
-                                            <input class="form-control" id="photo " type="file" id="formFile">
+                                            <input class="form-control" id="image" name="photo" type="file" id="formFile">
                                         </div>
+                                        <div class="form-group">
+                                            <label for="formFile" class="form-label"></label>
+                                            <img id="showImage" src="{{(!empty($userData->photo)) ? url('upload/user_images/'.$userData->photo): url('upload/no_image.jpg')}}" alt="" style="width: 100px; heigth:100px"></a>
 
                                         <div class="form-group message-btn">
                                             <button type="submit" class="theme-btn btn-one">Save Changes </button>
@@ -128,5 +131,26 @@
         </div>
     </section>
     <!-- subscribe-section end -->
+
+
+    <script type="text/javascript">
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const imageInput = document.getElementById('image');
+            const showImage = document.getElementById('showImage');
+
+            imageInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                const reader = new FileReader();
+
+                reader.onload = function(event) {
+                    showImage.src = event.target.result;
+                };
+
+                reader.readAsDataURL(file);
+            });
+        });
+    </script>
 
 </x-front-layout>

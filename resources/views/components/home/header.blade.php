@@ -28,7 +28,7 @@
     <div class="outer-box">
     <div class="main-box">
     <div class="logo-box">
-        <figure class="logo"><a href="index.html"><img src="{{asset('frontend/assets/images/logo.png')}}" alt=""></a></figure>
+        <figure class="logo"><a href="{{route('user.index')}}"><img src="{{asset('frontend/assets/images/logo.png')}}" alt=""></a></figure>
     </div>
     <div class="clearfix menu-area">
         <!--Mobile Navigation Toggler-->
