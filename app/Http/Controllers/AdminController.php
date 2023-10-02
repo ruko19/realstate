@@ -85,10 +85,7 @@ class AdminController extends Controller
 
     public function adminUpdatePassword(Request $request)
     {
-        // dd(auth::user()->password);
-        // dd($request);
-        // validation
-        // dd(!Hash::check($request->old_password, auth::user()->password));
+
         $request->validate([
             'old_password' => 'required',
             'new_password' => 'required|confirmed'
