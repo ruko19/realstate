@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgentController;
+use App\Http\Controllers\Backend\PropertyTypeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -71,3 +72,16 @@ Route::middleware(['auth', 'role:agent'])->group(function () {
 
 
 Route::get('/admin/login', [AdminController::class, 'adminLogin'])->name('admin.login');
+
+
+//   Admin Group Middleware
+Route::middleware(['auth', 'role:admin'])->group(function () {
+
+    // Property Type all Route
+    Route::controller(PropertyTypeController::class)->group(function () {
+
+        Route::get('/all/type', 'alltype')->name('all.type');
+        Route::get('/add/type', 'addtype')->name('add.type');
+        Route::post('/store/type', 'storeType')->name('store.type');
+    });
+});
